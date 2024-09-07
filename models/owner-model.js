@@ -12,4 +12,4 @@ const ownerSchema = mongoose.Schema({
     picture: String
 })
 
-module.exports = mongoose.model('user', ownerSchema);
+module.exports = mongoose.models.ownerSchema || mongoose.model('owner', ownerSchema);

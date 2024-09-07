@@ -3,22 +3,32 @@ const userSchema = mongoose.Schema({
     fullname: {
         type: String,
         minlength: 3,
-        trim: true
+        trim: true,
+        required : true
     },
-    email: String,
-    contact: String,
-    password: String,
+    email: {
+        type: String,
+        required : true,
+        unique : true,
+        trim : true
+    },
+    contact: {
+        type : Number,
+        required : true,
+        unique: true,
+    },
+    password: {
+        type: String,
+        required : true
+    },
     cart: {
         type: Array,
         default: []
     },
-    isadmin: Boolean,
     orders: {
         type: Array,
         default: []
     },
-    contact: Number,
     picture: String
 })
-
-module.exports = mongoose.model('user', userSchema);
+module.exports = mongoose.models.user || mongoose.model('user', userSchema);
