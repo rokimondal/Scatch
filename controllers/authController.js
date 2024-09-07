@@ -19,7 +19,7 @@ module.exports.register = async function (req, res) {
                     });
                     let token = generateToken(user);
                     res.cookie("token", token);
-                    res.send("User created successfully.");
+                    res.redirect('/shop');
                 }
             })
         })
